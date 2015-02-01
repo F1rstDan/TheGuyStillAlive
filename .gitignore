@@ -1,3 +1,6 @@
+# dota2 workshop tools cache
+/tools_thumbnail_cache.bin
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
