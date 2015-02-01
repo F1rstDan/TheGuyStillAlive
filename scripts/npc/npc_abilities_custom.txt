@@ -1,0 +1,572 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	//=================================================================================================================
+	// 轻型武器 - 默认
+	//=================================================================================================================
+	"Light_Weapons_Default"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"0"
+
+		// Data
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"25"
+
+		"AbilityCooldown"				"0.2"
+		"AbilityDamage"					"15"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "1"  //命中之后不删除投射物
+			"Damage"//这里改成Script
+			{
+				"Damage"		"%Damage"
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+			}
+			"Knockback"
+			{
+				"Target"		"TARGET"
+				"Center"		"CASTER"
+				"Duration"		"0.1"
+				"Distance"		"10"
+				"Height"		"0"
+			}
+		}
+
+		"Modifiers"
+		{
+			"Weapons_Left_Interval" //显示间隔时间
+			{
+				"Passive"			"0"
+			}
+
+		}
+
+		"Weapons_Data"
+		{
+			"EffectName"				"particles/sb/Light_Weapons_Default.vpcf"
+			"IsAttackToPosition"		"0"
+			"DeleteOnHit"				"1"
+			"HasFrontalCone"			"0"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Damage"					"15"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Distance"					"1200"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"MoveSpeed"					"1800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"StartRadius"				"32"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"EndRadius"					"32"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 重型武器 - 默认
+	//=================================================================================================================
+	"Heavy_Weapons_Default"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_homing_missile"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"0"
+
+		// Data
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"300"
+
+		"AbilityCooldown"				"1.5"
+		"AbilityDamage"					"30"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "0"  //命中之后不删除投射物
+			"Damage"//这里改成Script
+			{
+				"Damage"		"10"
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PHYSICAL"
+				"Damage"				"30"
+				"Target"
+				{
+					"Center"			"POINT"
+					"Radius"			"300"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			}
+			
+			"Knockback"
+			{
+				"Target"
+				{
+					"Center"	"POINT"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Radius"	"300"
+				}
+				"Center"	"POINT"
+				"Duration"	"0.25"
+				"Distance"	"25"
+				"Height"	"25"
+			}
+			
+			"FireSound"
+			{
+				"EffectName"		"Ability.AcidSpray"
+				"Target"			"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"Weapons_Right_Interval" //显示间隔时间
+			{
+				"Passive"			"0"
+			}
+
+		}
+
+		"Weapons_Data"
+		{
+			"EffectName"				"particles/sb/Heavy_Weapons_Default.vpcf"
+			"IsAttackToPosition"		"1"
+			"DeleteOnHit"				"0"
+			"HasFrontalCone"			"0"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Damage"					"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Distance"					"2000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"MoveSpeed"					"800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"StartRadius"				"32"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"EndRadius"					"32"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 重型武器 - 火焰
+	//=================================================================================================================
+	"Heavy_Weapons_Fire"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"dragon_knight_breathe_fire"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"0"
+
+		// Data
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"50"
+
+		"AbilityCooldown"				"0.1"
+		"AbilityDamage"					"30"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "0"  //命中之后不删除投射物
+			"Damage"//这里改成Script
+			{
+				"Damage"		"%Damage"
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+			}
+		}
+
+		"Modifiers"
+		{
+			"Weapons_Right_Interval" //显示间隔时间
+			{
+				"Passive"			"0"
+			}
+
+		}
+
+		"Weapons_Data"
+		{
+			"EffectName"				"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+			"IsAttackToPosition"		"0"
+			"DeleteOnHit"				"0"
+			"HasFrontalCone"			"1"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Damage"					"5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"Distance"					"500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"MoveSpeed"					"800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"StartRadius"				"150"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"EndRadius"					"256"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// 攻击减速
+	//=================================================================================================================
+	"slow_orb"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		// "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+		"MaxLevel"	"1"
+
+		// "precache" //预载
+		// {
+		// 	"particle_folder"			"particles/neutral_fx/"							//预载特效文件夹
+		// }
+
+		"Modifiers"
+		{
+			"Modifier_gnoll_assassin_orb"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"Modifier_gnoll_assassin_orb_slow"
+						"Duration"			"%duration"
+					}
+				}
+			}
+			"Modifier_gnoll_assassin_orb_slow"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"	//效果可叠加
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/neutral_fx/gnoll_poison_debuff.vpcf"
+						"EffectAttachType"	"follow_overhead"
+						"Target"			"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+				}
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-15"	//减速
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1"	//持续时间
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Acid Spray 小Boss 酸性喷雾，死亡自爆并击退周围的单位
+	//=================================================================================================================
+	"zombie_acid_spray"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"alchemist_acid_spray"
+		// "MaxLevel"						"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		// "AbilityCastPoint"				"0.2"
+		// "AbilityCastRange"				"900"
+	
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds/ability_acid_spray.vsndevts"
+		}
+		
+		"OnOwnerDied"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"			"boss_acid_spray_thinker"
+				"Target"				"CASTER"
+			}
+			
+			"FireEffect"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"EffectRadius"			"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale" "1"
+				"EffectColorA"			"25 150 25"
+				"EffectColorB"			"25 150 25"
+			}
+		
+			"Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PHYSICAL"
+				"Damage"				"%damage_explode"
+				"Target"
+				{
+					"Center"			"CASTER"
+					"Radius"			"%radius"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			}
+			
+			"Knockback"
+			{
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Radius"	"%radius"
+				}
+				"Center"	"CASTER"
+				"Duration"	"0.75"
+				"Distance"	"%radius + 25"
+				"Height"	"175"
+			}
+			
+			"FireSound"
+			{
+				"EffectName"		"Ability.AcidSpray"
+				"Target"			"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"boss_acid_spray_thinker"
+			{
+				"Aura"					"boss_acid_spray_armor_reduction_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "28 225 28"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+
+			"boss_acid_spray_armor_reduction_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PHYSICAL"
+						"Damage"	"%damage"
+						"Target"	"TARGET"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+				}
+			}
+			
+			"boss_acid_spray_fx"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray_f.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius-100 1 1"
+							"15" "28 225 28"
+							"16" "0.5 0 0"
+						}
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
+						"EffectAttachType"	"follow_overhead"
+						"Target"			"CASTER"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "28 225 28"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_explode"		"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"0.2"
+			}
+
+		}
+	}
+
+
+}

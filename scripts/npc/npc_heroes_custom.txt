@@ -1,0 +1,41 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: 矮人直升机
+	//=================================================================================================================
+	"npc_dota_hero_gyrocopter"
+	{
+		"override_hero"				"npc_dota_hero_gyrocopter"			// Hero to override
+		"Abilitylayout"				"2"
+		"Ability1"					"Light_Weapons_Default"				//Light_Weapons_Default
+		"Ability2"					"Heavy_Weapons_Default"				//Heavy_Weapons_Default Heavy_Weapons_Fire
+		"Ability3"					""	
+		//"Ability4"					""
+		"Ability5"					""
+		"Ability6"					""
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AutoAttacksByDefault"		"0"
+		"VisionDaytimeRange"		"1400"		// 白天视野大小 Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// 晚上视野大小 Range of vision at night time.
+
+		"StatusHealth"				"50"		// 基础生命值 Base health.
+		"StatusHealthRegen"			"1"			// 基础生命恢复 Health regeneration rate.
+		"StatusMana"				"1000"		// 基础魔法值 Base mana.
+		"StatusManaRegen"			"0"			// 基础魔法恢复 Mana regeneration rate.
+
+		"AttributeBaseStrength"			"0"									// Base strength
+		"AttributeStrengthGain"			"0"									// Strength bonus per level.
+		"AttributeBaseAgility"			"0"									// Base agility
+		"AttributeAgilityGain"			"0"									// Agility bonus per level.
+		"AttributeBaseIntelligence"		"0"									// Base intelligence
+		"AttributeIntelligenceGain"		"0"									// Intelligence bonus per level.
+
+	}
+
+}

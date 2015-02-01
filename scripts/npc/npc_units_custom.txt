@@ -1,0 +1,625 @@
+// Units File
+"DOTAUnits"
+{
+	"Version"	"1"
+	
+	//=================================================================================	
+	// Creature: Gnoll Assassin
+	//=================================================================================
+	"npc_dota_creature_gnoll_assassin"	
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/neutral_creeps/n_creep_gnoll/n_creep_gnoll_frost.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"n_creep_Ranged"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				".9"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"1"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"30"		// Damage range min.
+		"AttackDamageMax"			"36"		// Damage range max.
+		"AttackRate"				"1.6"		// Speed of attack.
+		"AttackAnimationPoint"		"0.4"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"500"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/neutral_fx/gnoll_base_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1500"		// Speed of projectile.		     
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"40"
+		"HealthBarOffset"			"170"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"24"		// Experience earn.
+		"BountyGoldMin"				"21"		// Gold earned min.
+		"BountyGoldMax"				"29"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"		// Speed.			
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"75"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"400"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"						// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Level Up
+			"HPGain"					"50"
+			"DamageGain"				"2"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"15"
+		}
+	}
+
+	//=================================================================================
+	// 普通丧尸
+	//=================================================================================
+	"npc_zombie_01"
+	{
+		// General 一般
+		"BaseClass"					"npc_dota_creature"	// 链接到实体类 Class of entity of link to.
+		"Model"						"models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl"	// 模型 Model.
+		"SoundSet"					"Undying_Zombie"					// 声音名称 Name of sound set.
+		//"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+		"ModelScale"				".93" //模型大小
+		"Level"						"1" //等级
+		"ConsideredHero"			"0" //是否被认为是英雄
+
+		// "precache" //预载
+		// {
+		// 	"particle_folder"			"particles/units/heroes/hero_kunkka"//预载特效文件夹
+		// }
+
+		// Abilities 技能
+		//----------------------------------------------------------------
+		
+		"Ability1"					"slow_orb"			// Ability 1.
+		//"Ability2"					""			// Ability 2.
+		//"Ability3"					""			// Ability 3.
+		//"Ability4"					""			// Ability 4.
+		//"Ability5"					""			// Ability 5.
+		//"Ability6"					""			// Ability 6 - Extra.
+		//"Ability7"					""			// Ability 7 - Extra.
+		//"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor 护甲
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"1"			// 物理护甲 Physical protection.
+		"MagicalResistance"			"0"		// 魔法抗性 Magical protection.
+
+		// Attack 攻击
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			//攻击类型，这里是近战攻击。其他的包括
+			//DOTA_UNIT_CAP_MELEE_ATTACK	近程攻击
+			//DOTA_UNIT_CAP_RANGED_ATTACK	远程攻击
+			//DOTA_UNIT_CAP_NO_ATTACK		无法攻击
+		"AttackDamageMin"			"5"		// 最小攻击力 Damage range min.
+		"AttackDamageMax"			"5"		// 最大攻击力 Damage range max.
+		"AttackRate"				"1.0"		// 攻击速度 Speed of attack.
+		"AttackAnimationPoint"		"0.2"		// 攻击前摇 Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"1200"		// 自动攻击距离 Range within a target can be acquired.
+		"AttackRange"				"150"		// 攻击距离 Range within a target can be attacked.
+		"ProjectileModel"			""			// 弹道特效(远程) Particle system model for projectile.
+		"ProjectileSpeed"			""			// 弹道速度(远程) Speed of projectile.
+
+		// Bounty 赏金
+		//----------------------------------------------------------------
+		"BountyXP"					"0"		// 击杀经验奖励 Experience earn.
+		"BountyGoldMin"				"0"			// 最小击杀金钱奖励 Gold earned min.
+		"BountyGoldMax"				"0"			// 最大击杀金钱奖励 Gold earned max.
+
+		// Bounds 界限
+		//----------------------------------------------------------------
+		"RingRadius"				"75"		// 选择框半径(75)
+		"HealthBarOffset"			"-1"		// 生命条偏移量(235,-1表示使用模型)
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	// 碰撞体积类型
+		//DOTA_HULL_SIZE_BARRACKS,_BUILDING,_FILLER,_HERO,_HUGE,_REGULAR,_SIEGE,_SMALL,_TOWER
+		//分别是           兵营 ，   建筑  ， 填充 ，英雄，巨大， 普通 ， 围城 ，小型，防御塔
+
+		// Movement 移动
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// 移动类型，地面 Type of locomotion - ground, air
+		//DOTA_UNIT_CAP_MOVE_FLY 飞行		DOTA_UNIT_CAP_MOVE_NONE 无法移动
+		"MovementSpeed"				"200"		// 移动速度 Speed
+		"MovementTurnRate"			"0.6"		// 转身速度 Turning rate.
+
+		// Status 状态
+		//----------------------------------------------------------------
+		"StatusHealth"				"50"		// 基础生命值 Base health.
+		"StatusHealthRegen"			"1"			// 基础生命恢复 Health regeneration rate.
+		"StatusMana"				"1000"		// 基础魔法值 Base mana.
+		"StatusManaRegen"			"5"			// 基础魔法恢复 Mana regeneration rate.
+
+		// Team 队伍
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// 队伍名称 Team name.
+		//DOTA_TEAM_BADGUYS,_GOODGUYS,_NEUTRALS,_NOTEAM; DOTA_MAX_PLAYERS,_TEAM,_PLAYER_TEAMS,_TEAM_PLAYERS
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"	//攻击伤害类型，基本
+		//
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"		//护甲类型，软甲
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"	//单位关系类型，默认
+		
+		// Vision 视野
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// 白天视野大小 Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// 晚上视野大小 Range of vision at night time.
+
+		// Creature Data 生物数据
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+
+			//Level Up Parameters 升级参数
+			//-----------------------------------------------------------------
+			"HPGain"					"25"	//增加生命值
+			"HPRegenGain"				"1"		//增加生命回复
+			"DamageGain"				"5"		//增加攻击力
+			"ArmorGain"					"0.5"	//增加护甲值
+			"MagicResistGain"			"1"		//增加魔法抗性
+			"MoveSpeedGain"				"5"		//增加移动速度
+			"BountyGain"				"5"		//增加击杀赏金
+			"XPGain"					"5"		//增加击杀经验
+
+
+			// "AttachWearables"	// 附加饰品
+			// {
+			// 	"Wearable1"
+			// 	{
+			// 		"ItemDef"			"10" //脚 models/heroes/kunkka/kunkka_feet.vmdl
+			// 	}
+			// 	"Wearable2"
+			// 	{
+			// 		"ItemDef"			"11" //手 models/heroes/kunkka/kunkka_hands.vmdl
+			// 	}
+			// 	"Wearable3"
+			// 	{
+			// 		"ItemDef"			"12" //武器 models/heroes/kunkka/kunkka_sword.vmdl
+			// 	}
+			// 	"Wearable4"
+			// 	{
+			// 		"ItemDef"			"14" //头发 models/heroes/kunkka/kunkka_hair.vmdl
+			// 	}
+			// }
+		}
+	}
+
+	//=================================================================================
+	// 没腿丧尸，移动速度快，血少，自动攻击距离远
+	//=================================================================================
+	"npc_zombie_02"
+	{
+		// General 一般
+		"BaseClass"					"npc_dota_creature"	// 链接到实体类 Class of entity of link to.
+		"Model"						"models/creeps/lane_creeps/creep_bad_ranged_diretide/creep_bad_ranged_diretide.vmdl"	// 模型 Model.
+		"SoundSet"					"Undying_Zombie"					// 声音名称 Name of sound set.
+		//"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+		"ModelScale"				".93" //模型大小
+		"Level"						"1" //等级
+		"ConsideredHero"			"0" //是否被认为是英雄
+
+		// "precache" //预载
+		// {
+		// 	"particle_folder"			"particles/units/heroes/hero_kunkka"//预载特效文件夹
+		// }
+
+		// Abilities 技能
+		//----------------------------------------------------------------
+		
+		"Ability1"					"slow_orb"			// Ability 1.
+		//"Ability2"					""			// Ability 2.
+		//"Ability3"					""			// Ability 3.
+		//"Ability4"					""			// Ability 4.
+		//"Ability5"					""			// Ability 5.
+		//"Ability6"					""			// Ability 6 - Extra.
+		//"Ability7"					""			// Ability 7 - Extra.
+		//"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor 护甲
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"1"			// 物理护甲 Physical protection.
+		"MagicalResistance"			"0"		// 魔法抗性 Magical protection.
+
+		// Attack 攻击
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			//攻击类型，这里是近战攻击。其他的包括
+			//DOTA_UNIT_CAP_MELEE_ATTACK	近程攻击
+			//DOTA_UNIT_CAP_RANGED_ATTACK	远程攻击
+			//DOTA_UNIT_CAP_NO_ATTACK		无法攻击
+		"AttackDamageMin"			"5"		// 最小攻击力 Damage range min.
+		"AttackDamageMax"			"5"		// 最大攻击力 Damage range max.
+		"AttackRate"				"0.8"		// 攻击速度 Speed of attack.
+		"AttackAnimationPoint"		"0.2"		// 攻击前摇 Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"1800"		// 自动攻击距离 Range within a target can be acquired.
+		"AttackRange"				"150"		// 攻击距离 Range within a target can be attacked.
+		"ProjectileModel"			""			// 弹道特效(远程) Particle system model for projectile.
+		"ProjectileSpeed"			""			// 弹道速度(远程) Speed of projectile.
+
+		// Bounty 赏金
+		//----------------------------------------------------------------
+		"BountyXP"					"0"		// 击杀经验奖励 Experience earn.
+		"BountyGoldMin"				"0"			// 最小击杀金钱奖励 Gold earned min.
+		"BountyGoldMax"				"0"			// 最大击杀金钱奖励 Gold earned max.
+
+		// Bounds 界限
+		//----------------------------------------------------------------
+		"RingRadius"				"75"		// 选择框半径(75)
+		"HealthBarOffset"			"-1"		// 生命条偏移量(235,-1表示使用模型)
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	// 碰撞体积类型
+		//DOTA_HULL_SIZE_BARRACKS,_BUILDING,_FILLER,_HERO,_HUGE,_REGULAR,_SIEGE,_SMALL,_TOWER
+		//分别是           兵营 ，   建筑  ， 填充 ，英雄，巨大， 普通 ， 围城 ，小型，防御塔
+
+		// Movement 移动
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// 移动类型，地面 Type of locomotion - ground, air
+		//DOTA_UNIT_CAP_MOVE_FLY 飞行		DOTA_UNIT_CAP_MOVE_NONE 无法移动
+		"MovementSpeed"				"350"		// 移动速度 Speed
+		"MovementTurnRate"			"0.6"		// 转身速度 Turning rate.
+
+		// Status 状态
+		//----------------------------------------------------------------
+		"StatusHealth"				"15"		// 基础生命值 Base health.
+		"StatusHealthRegen"			"1"			// 基础生命恢复 Health regeneration rate.
+		"StatusMana"				"1000"		// 基础魔法值 Base mana.
+		"StatusManaRegen"			"5"			// 基础魔法恢复 Mana regeneration rate.
+
+		// Team 队伍
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// 队伍名称 Team name.
+		//DOTA_TEAM_BADGUYS,_GOODGUYS,_NEUTRALS,_NOTEAM; DOTA_MAX_PLAYERS,_TEAM,_PLAYER_TEAMS,_TEAM_PLAYERS
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"	//攻击伤害类型，基本
+		//
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"		//护甲类型，软甲
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"	//单位关系类型，默认
+		
+		// Vision 视野
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// 白天视野大小 Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// 晚上视野大小 Range of vision at night time.
+
+		// Creature Data 生物数据
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+
+			//Level Up Parameters 升级参数
+			//-----------------------------------------------------------------
+			"HPGain"					"25"	//增加生命值
+			"HPRegenGain"				"1"		//增加生命回复
+			"DamageGain"				"5"		//增加攻击力
+			"ArmorGain"					"0.5"	//增加护甲值
+			"MagicResistGain"			"1"		//增加魔法抗性
+			"MoveSpeedGain"				"5"		//增加移动速度
+			"BountyGain"				"5"		//增加击杀赏金
+			"XPGain"					"5"		//增加击杀经验
+
+
+			// "AttachWearables"	// 附加饰品
+			// {
+			// 	"Wearable1"
+			// 	{
+			// 		"ItemDef"			"10" //脚 models/heroes/kunkka/kunkka_feet.vmdl
+			// 	}
+			// 	"Wearable2"
+			// 	{
+			// 		"ItemDef"			"11" //手 models/heroes/kunkka/kunkka_hands.vmdl
+			// 	}
+			// 	"Wearable3"
+			// 	{
+			// 		"ItemDef"			"12" //武器 models/heroes/kunkka/kunkka_sword.vmdl
+			// 	}
+			// 	"Wearable4"
+			// 	{
+			// 		"ItemDef"			"14" //头发 models/heroes/kunkka/kunkka_hair.vmdl
+			// 	}
+			// }
+		}
+	}
+
+	//=================================================================================
+	// 小屠夫，血厚
+	//=================================================================================
+	"npc_zombie_03"
+	{
+		// General 一般
+		"BaseClass"					"npc_dota_creature"	// 链接到实体类 Class of entity of link to.
+		"Model"						"models/heroes/pudge/pudge.vmdl"	// 模型 Model.
+		"SoundSet"					"Undying_Zombie"					// 声音名称 Name of sound set.
+		//"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+		"ModelScale"				".67" //模型大小
+		"Level"						"1" //等级
+		"ConsideredHero"			"0" //是否被认为是英雄
+
+		// "precache" //预载
+		// {
+		// 	"particle_folder"			"particles/units/heroes/hero_kunkka"//预载特效文件夹
+		// }
+
+		// Abilities 技能
+		//----------------------------------------------------------------
+		
+		"Ability1"					"slow_orb"			// Ability 1.
+		//"Ability2"					""			// Ability 2.
+		//"Ability3"					""			// Ability 3.
+		//"Ability4"					""			// Ability 4.
+		//"Ability5"					""			// Ability 5.
+		//"Ability6"					""			// Ability 6 - Extra.
+		//"Ability7"					""			// Ability 7 - Extra.
+		//"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor 护甲
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"1"			// 物理护甲 Physical protection.
+		"MagicalResistance"			"0"		// 魔法抗性 Magical protection.
+
+		// Attack 攻击
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			//攻击类型，这里是近战攻击。其他的包括
+			//DOTA_UNIT_CAP_MELEE_ATTACK	近程攻击
+			//DOTA_UNIT_CAP_RANGED_ATTACK	远程攻击
+			//DOTA_UNIT_CAP_NO_ATTACK		无法攻击
+		"AttackDamageMin"			"8"		// 最小攻击力 Damage range min.
+		"AttackDamageMax"			"8"		// 最大攻击力 Damage range max.
+		"AttackRate"				"0.8"		// 攻击速度 Speed of attack.
+		"AttackAnimationPoint"		"0.2"		// 攻击前摇 Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// 自动攻击距离 Range within a target can be acquired.
+		"AttackRange"				"150"		// 攻击距离 Range within a target can be attacked.
+		"ProjectileModel"			""			// 弹道特效(远程) Particle system model for projectile.
+		"ProjectileSpeed"			""			// 弹道速度(远程) Speed of projectile.
+
+		// Bounty 赏金
+		//----------------------------------------------------------------
+		"BountyXP"					"0"		// 击杀经验奖励 Experience earn.
+		"BountyGoldMin"				"0"			// 最小击杀金钱奖励 Gold earned min.
+		"BountyGoldMax"				"0"			// 最大击杀金钱奖励 Gold earned max.
+
+		// Bounds 界限
+		//----------------------------------------------------------------
+		"RingRadius"				"75"		// 选择框半径(75)
+		"HealthBarOffset"			"-1"		// 生命条偏移量(235,-1表示使用模型)
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	// 碰撞体积类型
+		//DOTA_HULL_SIZE_BARRACKS,_BUILDING,_FILLER,_HERO,_HUGE,_REGULAR,_SIEGE,_SMALL,_TOWER
+		//分别是           兵营 ，   建筑  ， 填充 ，英雄，巨大， 普通 ， 围城 ，小型，防御塔
+
+		// Movement 移动
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// 移动类型，地面 Type of locomotion - ground, air
+		//DOTA_UNIT_CAP_MOVE_FLY 飞行		DOTA_UNIT_CAP_MOVE_NONE 无法移动
+		"MovementSpeed"				"120"		// 移动速度 Speed
+		"MovementTurnRate"			"0.6"		// 转身速度 Turning rate.
+
+		// Status 状态
+		//----------------------------------------------------------------
+		"StatusHealth"				"150"		// 基础生命值 Base health.
+		"StatusHealthRegen"			"1"			// 基础生命恢复 Health regeneration rate.
+		"StatusMana"				"1000"		// 基础魔法值 Base mana.
+		"StatusManaRegen"			"5"			// 基础魔法恢复 Mana regeneration rate.
+
+		// Team 队伍
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// 队伍名称 Team name.
+		//DOTA_TEAM_BADGUYS,_GOODGUYS,_NEUTRALS,_NOTEAM; DOTA_MAX_PLAYERS,_TEAM,_PLAYER_TEAMS,_TEAM_PLAYERS
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"	//攻击伤害类型，基本
+		//
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"		//护甲类型，软甲
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"	//单位关系类型，默认
+		
+		// Vision 视野
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// 白天视野大小 Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// 晚上视野大小 Range of vision at night time.
+
+		// Creature Data 生物数据
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+
+			//Level Up Parameters 升级参数
+			//-----------------------------------------------------------------
+			"HPGain"					"25"	//增加生命值
+			"HPRegenGain"				"1"		//增加生命回复
+			"DamageGain"				"5"		//增加攻击力
+			"ArmorGain"					"0.5"	//增加护甲值
+			"MagicResistGain"			"1"		//增加魔法抗性
+			"MoveSpeedGain"				"5"		//增加移动速度
+			"BountyGain"				"5"		//增加击杀赏金
+			"XPGain"					"5"		//增加击杀经验
+
+
+			// "AttachWearables"	// 附加饰品
+			// {
+			// 	"Wearable1"
+			// 	{
+			// 		"ItemDef"			"10" //脚 models/heroes/kunkka/kunkka_feet.vmdl
+			// 	}
+			// 	"Wearable2"
+			// 	{
+			// 		"ItemDef"			"11" //手 models/heroes/kunkka/kunkka_hands.vmdl
+			// 	}
+			// 	"Wearable3"
+			// 	{
+			// 		"ItemDef"			"12" //武器 models/heroes/kunkka/kunkka_sword.vmdl
+			// 	}
+			// 	"Wearable4"
+			// 	{
+			// 		"ItemDef"			"14" //头发 models/heroes/kunkka/kunkka_hair.vmdl
+			// 	}
+			// }
+		}
+	}
+
+	//=================================================================================
+	// 绿色骷髅(骨法)，死后自爆
+	//=================================================================================
+	"npc_zombie_04"
+	{
+		// General 一般
+		"BaseClass"					"npc_dota_creature"	// 链接到实体类 Class of entity of link to.
+		"Model"						"models/heroes/pugna/pugna.vmdl"	// 模型 Model.
+		"SoundSet"					"Undying_Zombie"					// 声音名称 Name of sound set.
+		//"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+		"ModelScale"				".87" //模型大小
+		"Level"						"1" //等级
+		"ConsideredHero"			"0" //是否被认为是英雄
+
+		// "precache" //预载
+		// {
+		// 	"particle_folder"			"particles/units/heroes/hero_kunkka"//预载特效文件夹
+		// }
+
+		// Abilities 技能
+		//----------------------------------------------------------------
+		
+		"Ability1"					"slow_orb"			// Ability 1.
+		"Ability2"					"zombie_acid_spray"			// Ability 2.
+		//"Ability3"					""			// Ability 3.
+		//"Ability4"					""			// Ability 4.
+		//"Ability5"					""			// Ability 5.
+		//"Ability6"					""			// Ability 6 - Extra.
+		//"Ability7"					""			// Ability 7 - Extra.
+		//"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor 护甲
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"1"			// 物理护甲 Physical protection.
+		"MagicalResistance"			"0"		// 魔法抗性 Magical protection.
+
+		// Attack 攻击
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			//攻击类型，这里是近战攻击。其他的包括
+			//DOTA_UNIT_CAP_MELEE_ATTACK	近程攻击
+			//DOTA_UNIT_CAP_RANGED_ATTACK	远程攻击
+			//DOTA_UNIT_CAP_NO_ATTACK		无法攻击
+		"AttackDamageMin"			"8"		// 最小攻击力 Damage range min.
+		"AttackDamageMax"			"8"		// 最大攻击力 Damage range max.
+		"AttackRate"				"0.8"		// 攻击速度 Speed of attack.
+		"AttackAnimationPoint"		"0.2"		// 攻击前摇 Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"900"		// 自动攻击距离 Range within a target can be acquired.
+		"AttackRange"				"150"		// 攻击距离 Range within a target can be attacked.
+		"ProjectileModel"			""			// 弹道特效(远程) Particle system model for projectile.
+		"ProjectileSpeed"			""			// 弹道速度(远程) Speed of projectile.
+
+		// Bounty 赏金
+		//----------------------------------------------------------------
+		"BountyXP"					"0"		// 击杀经验奖励 Experience earn.
+		"BountyGoldMin"				"0"			// 最小击杀金钱奖励 Gold earned min.
+		"BountyGoldMax"				"0"			// 最大击杀金钱奖励 Gold earned max.
+
+		// Bounds 界限
+		//----------------------------------------------------------------
+		"RingRadius"				"75"		// 选择框半径(75)
+		"HealthBarOffset"			"-1"		// 生命条偏移量(235,-1表示使用模型)
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	// 碰撞体积类型
+		//DOTA_HULL_SIZE_BARRACKS,_BUILDING,_FILLER,_HERO,_HUGE,_REGULAR,_SIEGE,_SMALL,_TOWER
+		//分别是           兵营 ，   建筑  ， 填充 ，英雄，巨大， 普通 ， 围城 ，小型，防御塔
+
+		// Movement 移动
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	// 移动类型，地面 Type of locomotion - ground, air
+		//DOTA_UNIT_CAP_MOVE_FLY 飞行		DOTA_UNIT_CAP_MOVE_NONE 无法移动
+		"MovementSpeed"				"220"		// 移动速度 Speed
+		"MovementTurnRate"			"0.6"		// 转身速度 Turning rate.
+
+		// Status 状态
+		//----------------------------------------------------------------
+		"StatusHealth"				"75"		// 基础生命值 Base health.
+		"StatusHealthRegen"			"1"			// 基础生命恢复 Health regeneration rate.
+		"StatusMana"				"1000"		// 基础魔法值 Base mana.
+		"StatusManaRegen"			"5"			// 基础魔法恢复 Mana regeneration rate.
+
+		// Team 队伍
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// 队伍名称 Team name.
+		//DOTA_TEAM_BADGUYS,_GOODGUYS,_NEUTRALS,_NOTEAM; DOTA_MAX_PLAYERS,_TEAM,_PLAYER_TEAMS,_TEAM_PLAYERS
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"	//攻击伤害类型，基本
+		//
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"		//护甲类型，软甲
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"	//单位关系类型，默认
+		
+		// Vision 视野
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// 白天视野大小 Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// 晚上视野大小 Range of vision at night time.
+
+		// Creature Data 生物数据
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+
+			//Level Up Parameters 升级参数
+			//-----------------------------------------------------------------
+			"HPGain"					"25"	//增加生命值
+			"HPRegenGain"				"1"		//增加生命回复
+			"DamageGain"				"5"		//增加攻击力
+			"ArmorGain"					"0.5"	//增加护甲值
+			"MagicResistGain"			"1"		//增加魔法抗性
+			"MoveSpeedGain"				"5"		//增加移动速度
+			"BountyGain"				"5"		//增加击杀赏金
+			"XPGain"					"5"		//增加击杀经验
+
+
+			// "AttachWearables"	// 附加饰品
+			// {
+			// 	"Wearable1"
+			// 	{
+			// 		"ItemDef"			"10" //脚 models/heroes/kunkka/kunkka_feet.vmdl
+			// 	}
+			// 	"Wearable2"
+			// 	{
+			// 		"ItemDef"			"11" //手 models/heroes/kunkka/kunkka_hands.vmdl
+			// 	}
+			// 	"Wearable3"
+			// 	{
+			// 		"ItemDef"			"12" //武器 models/heroes/kunkka/kunkka_sword.vmdl
+			// 	}
+			// 	"Wearable4"
+			// 	{
+			// 		"ItemDef"			"14" //头发 models/heroes/kunkka/kunkka_hair.vmdl
+			// 	}
+			// }
+		}
+	}
+
+}
