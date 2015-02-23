@@ -1,3 +1,5 @@
+
+savedhero=nil   --存储英雄
 if Global == nil then
 	Global = class({})
 end
@@ -61,6 +63,7 @@ end
 --------------------------------------------------------------------------------
 function Global:HeroMoveAndShooting( event )
 	local hero = EntIndexToHScript( event.entindex )
+	savedhero=hero
 	if not hero or hero:IsPhantom() then
 		return
 	end

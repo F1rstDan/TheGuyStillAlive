@@ -622,4 +622,54 @@
 		}
 	}
 
+     "wall"
+  {
+    "BaseClass" "npc_dota_creature"
+    "Model" "models/buildings/building_plain_reference.vmdl" //Ä£ÐÍ
+    "ModelScale"  "1"                                                            //Ä£ÐÍ³ß´ç
+    "SoundSet" "Creep_Good_Melee"
+     
+    "MinimapIcon" ""
+    "MinimapIconSize" "50"
+    "HealthBarOffset" "-1"
+        "Ability1" ""
+        "Ability2" ""
+    "Ability3" ""
+    "Ability4" ""
+    "Ability5" ""
+    "Ability6" ""
+    "Ability7" ""
+    "Ability8" ""
+    "ArmorPhysical" "3"                                             
+    "MagicalResistance" "0"
+    "AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK"                 //½üÕ½orÔ¶³Ì
+                                   //¹¥ËÙ
+    "AttackAnimationPoint" "1"                                  
+    "AttackAcquisitionRange" "400"                                  //¹¥»÷¾àÀë
+    "AttackRange" "400"
+    "ProjectileModel" ""
+    "ProjectileSpeed" ""
+    "BountyXP" "0"
+    "BountyGoldMin" "3"                                          
+    "BountyGoldMax" "3"
+    "BoundsHullName" "DOTA_HULL_SIZE_HUGE"
+    "RingRadius" "15"                                               
+    "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND"                
+    "MovementSpeed" "300"                                             
+    "MovementTurnRate" "1.5"                                           
+    "StatusHealth" " 1475"                                      //ÉúÃüÖµ                              
+    "StatusHealthRegen" "0"                                     
+    "StatusMana" "0"
+    "StatusManaRegen" "0"
+    "TeamName" "DOTA_TEAM_NEUTRALS"                                
+    "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_HERO"             //¹¥»÷ÀàÐÍ
+    "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_SOFT"              //»¤¼×ÀàÐÍ
+    "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "VisionDaytimeRange" "1500"
+
+
+  }
+
+
+
 }

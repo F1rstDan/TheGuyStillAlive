@@ -1,7 +1,10 @@
 -- common 一般
 require('global')
 require('shooting')
-
+require('playerinit')
+require('roominit')
+require('playerinit')
+require('trigger')
 -- require('settings')
 
 -- lib 库

@@ -1,6 +1,6 @@
 -- load everyhing
 require('require_everything')
-
+hulage=0
 if SBGameMode == nil then
 	SBGameMode = class({})
 end
@@ -69,7 +69,7 @@ function SBGameMode:InitGameMode()
 
 	--注册命令和向控制台发布命令
 	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("SendToConsole"),function()
-			SendToConsole("scaleform_spew 1")				--显示flash打印
+			--SendToConsole("scaleform_spew 1")				--显示flash打印
 			SendToConsole("dota_render_y_inset 0")			--顶部开始渲染高度
 			SendToConsole("dota_render_crop_height 0")		--底部开始渲染高度
 			SendToConsole("dota_camera_distance 1600")		--视角高度
@@ -93,6 +93,11 @@ end
 
 -- Evaluate the state of the game
 function SBGameMode:OnThink()
+   	  if hulage==0 then
+        player_init()
+        hulage=1
+      end
+
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		--print( "Template addon script is running." )
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
