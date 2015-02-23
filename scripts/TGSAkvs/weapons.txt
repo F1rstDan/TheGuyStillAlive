@@ -1,0 +1,75 @@
+// The Guy Still Alive File
+"DOTAAbilities"
+{
+	"Version"		"vBeta1.0"
+	//=================================================================================================================
+	// 轻型武器 - 默认
+	//=================================================================================================================
+	"Light_Weapons_Default"
+	{
+		"CanBeLight"				"1"
+		"CanBeHeavy"				"1"
+
+		"TextureName"				"gyrocopter_rocket_barrage.png"
+		"EffectName"				"particles/sb/Light_Weapons_Default.vpcf"
+		"IsAttackToPosition"		"0"
+		"DeleteOnHit"				"1"
+		"HasFrontalCone"			"0"
+
+		"Damage"					"15"
+		"Cooldown"					"0.2"
+		"ManaCost"					"25"
+		"Distance"					"1200"
+		"MoveSpeed"					"1800"
+		"StartRadius"				"64"
+		"EndRadius"					"64"
+	}
+
+	//=================================================================================================================
+	// 重型武器 - 默认
+	//=================================================================================================================
+	"Heavy_Weapons_Default"
+	{
+		"CanBeLight"				"0"
+		"CanBeHeavy"				"1"
+
+		"TextureName"				"gyrocopter_homing_missile.png"
+		"EffectName"				"particles/sb/Heavy_Weapons_Default.vpcf"
+		"IsAttackToPosition"		"1"
+		"DeleteOnHit"				"0"
+		"HasFrontalCone"			"0"
+
+		"Damage"					"30"
+		"Cooldown"					"1.5"
+		"ManaCost"					"300"
+		"Distance"					"2000"
+		"MoveSpeed"					"800"
+		"StartRadius"				"32"
+		"EndRadius"					"32"
+	}
+
+	//=================================================================================================================
+	// 重型武器 - 火焰
+	//=================================================================================================================
+	"Heavy_Weapons_Fire"
+	{
+		"CanBeLight"				"1"
+		"CanBeHeavy"				"1"
+
+		"TextureName"				"dragon_knight_breathe_fire.png"
+		"EffectName"				"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+		"IsAttackToPosition"		"0"
+		"DeleteOnHit"				"0"
+		"HasFrontalCone"			"1"
+
+		"Damage"					"5"
+		"Cooldown"					"0.1"
+		"ManaCost"					"50"
+		"Distance"					"500"
+		"MoveSpeed"					"800"
+		"StartRadius"				"150"
+		"EndRadius"					"256"
+
+	}
+
+}

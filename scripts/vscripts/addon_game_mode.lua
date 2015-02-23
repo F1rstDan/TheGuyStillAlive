@@ -1,12 +1,12 @@
 -- load everyhing
 require('require_everything')
-
+hulage=0
 if SBGameMode == nil then
 	SBGameMode = class({})
 end
 
 function PrecacheEveryThingFromKV( context )
-	local kv_files = {"scripts/npc/npc_units_custom.txt","scripts/npc/npc_abilities_custom.txt","scripts/npc/npc_heroes_custom.txt","scripts/npc/npc_abilities_override.txt","npc_items_custom.txt"}
+	local kv_files = {"scripts/TGSAkvs/weapons.txt","scripts/npc/npc_units_custom.txt","scripts/npc/npc_abilities_custom.txt","scripts/npc/npc_heroes_custom.txt","scripts/npc/npc_abilities_override.txt","npc_items_custom.txt"}
 	for _, kv in pairs(kv_files) do
 		local kvs = LoadKeyValues(kv)
 		if kvs then
@@ -93,6 +93,11 @@ end
 
 -- Evaluate the state of the game
 function SBGameMode:OnThink()
+	if hulage==0 then
+		player_init()
+		hulage=1
+	end
+	
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		--print( "Template addon script is running." )
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then

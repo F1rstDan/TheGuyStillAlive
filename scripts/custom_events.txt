@@ -20,6 +20,17 @@
 
 "CustomEvents"
 {
+	//传输 物品 数据
+	"Send_Item_Data"
+	{
+		"nPlayerID"			"short"
+		"sPlaceSlot"		"string"	//"inbag" "Light_Weapons_Left" == "Light_Weapons_Right" == "Heavy_Weapons_Middle"
+		"nItemID"			"short"
+		"bCanBeLight"		"bool"
+		"bCanBeHeavy"		"bool"
+		"sItemName"			"string"
+		"sTextureName"		"string"
+	}
 	"custom_error_show"
 	{
 		"player_ID"			"short"

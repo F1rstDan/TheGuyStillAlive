@@ -1,0 +1,74 @@
+﻿"lang"
+{
+    "Language"      "SChinese"
+    "Tokens"
+    {
+        //=====================================
+        //常规
+        //=====================================
+        "addon_game_name"           "这家伙还活着" //The Guy Still Alive
+        "game_mode_15_desc"         ""
+
+        "Game_Author"               "作者：F1rstDan"
+        "Game_Author_Email"         "Email：Hzkkai@gmail.com"
+        "Game_Author_HomePage"      "www.dota2rpg.com/tgsa"
+        "Game_Donate1"              "    如果你喜欢这个自定义游戏，可以通过“支付宝钱包”扫描上面的二维码，捐赠作者。"
+        "Game_Donate2"              "    如果你是国际友人，可以通过 PayPal向Email发出捐赠。"
+
+        "Thank_Translator"          "非常感谢以下本地化翻译者："
+        "Language_ZhCn"             "游戏原语言"
+        "Language_En"               "Google Translate"
+
+        //=====================================
+        //LUA代码里面所使用的
+        //=====================================
+        "CustomError_ManaNotEnough" "能量不足"
+
+        //=====================================
+        //AS代码里面所使用的
+        //=====================================
+        "UI_test"                   "abc测试123"
+        
+        "UI_Version"                "vBeta1.0"
+
+        "UI_HotKeysPanelButton"     "操作说明"
+        "UI_HowToPlayPanelButton"   "如何游戏"
+        // "UI_UpdatePanelButton"       "更新日志"
+        "UI_InfoPanelButton"        "信息"
+
+        "UI_HotKeysPanel_up"        "向上移动"
+        "UI_HotKeysPanel_down"      "向下移动"
+        "UI_HotKeysPanel_left"      "向左移动"
+        "UI_HotKeysPanel_right"     "向右移动"
+        "UI_HotKeysPanel_weapon1"   "轻型武器左/右"
+        "UI_HotKeysPanel_weapon2"   "重型武器"
+        "UI_HotKeysPanel_mousemove" "移动鼠标控制人物转向"
+        "UI_HotKeysPanel_whynotuesWD"       "为什么W和D键不能使用？"
+        "UI_HotKeysPanel_notuesWD"          "因为被DotA2的技能键位影响了。只需要到“设置”页面下的“技能”一栏里，勾上“DotA键位”即可。"
+        "UI_HotKeysPanel_bindWASD"          "重绑WASD热键"
+
+        "UI_HowToPlayPanel_info"    "(单人游戏)本测试版本为只是技术可行性测试，现在没有任何的可玩性！如果喜欢这类游戏请多多点赞与收藏，这是我继续制作的动力。
+在接下来的时间会不断的更新，更新队列为：
+1. 人物库存，物品的掉落与自动捡起，不同种类的物品(消耗品，武器，武器组件，机动零件)。
+2. 武器的组装系统(武器种类，攻击属性组件)。
+3. 增加游戏可玩性：游戏关卡，复活机制，刷怪机制，boss战。
+4. 更多的武器种类，更多的武器组件，更多丧尸种类。
+5. 尝试多人游戏的可行性。
+6. 美化游戏UI,地图，特效等等。
+7. 随机地形的测试，完全Roguelike
+8. ……"
+
+        //=====================================
+        //英雄技能
+        //=====================================
+
+        //=====================================
+        //单位技能
+        //=====================================
+
+        //=====================================
+        //物品
+        //=====================================
+
+    }
+}

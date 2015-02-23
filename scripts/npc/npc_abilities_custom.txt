@@ -3,6 +3,280 @@
 {
 	"Version"		"1"
 
+	"ability_dummy_unit"
+	{
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+		"Modifiers"
+		{
+			"dummy_unit"
+			{
+				"Passive"							"1"
+				"IsHidden"							"1"    
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"       "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"        "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"ability_dummy_items"
+	{
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+		"Modifiers"
+		{
+			"dummy_unit"
+			{
+				"Passive"							"1"
+				"IsHidden"							"1"    
+				"States"
+				{
+					//"MODIFIER_STATE_UNSELECTABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"         "MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_NOT_ON_MINIMAP"       "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"        "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"ability_pick_up_items"
+	{
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"find_radius"			"50.0"
+			}
+		}
+		
+		
+		"Modifiers"
+		{
+			"aura_pick_up_items"
+			{
+				"IsHidden"				"1"
+				"Passive"				"1"
+				
+				"Aura"					"modifier_pick_up_items"
+				"Aura_Radius"			"%find_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_NO_INVIS | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+				"Aura_ApplyToCaster"	"0"
+			}
+			
+			"modifier_pick_up_items"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsHidden"			"1"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "scripts/vscripts/items.lua"
+						"Function"      "PickUpItems"
+					}
+				}
+			}
+		}
+    }
+
+	//=================================================================================================================
+	// 轻型武器 - 左
+	//=================================================================================================================
+	"Light_Weapons_Left_DeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "1"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Light_Weapons_Left"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Light_Weapons_Left"
+			}
+		}
+	}
+	"Light_Weapons_Left_NoDeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "0"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Light_Weapons_Left"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Light_Weapons_Left"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 轻型武器 - 右
+	//=================================================================================================================
+	"Light_Weapons_Right_DeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "1"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Light_Weapons_Right"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Light_Weapons_Right"
+			}
+		}
+	}
+	"Light_Weapons_Right_NoDeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "0"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Light_Weapons_Right"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Light_Weapons_Right"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// 重型武器 - 中
+	//=================================================================================================================
+	"Heavy_Weapons_Middle_DeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "1"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Heavy_Weapons_Middle"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Heavy_Weapons_Middle"
+			}
+		}
+	}
+	"Heavy_Weapons_Middle_NoDeleteOnHit"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gyrocopter_rocket_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"0"
+
+		"OnProjectileHitUnit"  
+		{
+			"DeleteOnHit"        "0"  //命中之后不删除投射物
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnHit"
+				"Weapons"		"Heavy_Weapons_Middle"
+			}
+		}
+		"OnProjectileFinish"
+		{
+			"RunScript"
+			{
+				"Target"		"PROJECTILE"
+				"ScriptFile" 	"scripts/vscripts/shooting.lua"
+				"Function"		"Weapons_Shooting_OnFinish"
+				"Weapons"		"Heavy_Weapons_Middle"
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// 轻型武器 - 默认
 	//=================================================================================================================
@@ -231,7 +505,7 @@
 		"AbilityManaCost"				"50"
 
 		"AbilityCooldown"				"0.1"
-		"AbilityDamage"					"30"
+		"AbilityDamage"					"5"
 
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------

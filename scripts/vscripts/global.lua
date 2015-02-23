@@ -1,3 +1,4 @@
+savedhero=nil   --存储英雄
 if Global == nil then
 	Global = class({})
 end
@@ -52,7 +53,20 @@ function Global:OnEntityKilled_CreateUnit( keys )
 	-- local attacker =EntIndexToHScript( keys.entindex_attacker )
 
 	if not killed:IsHero() then
-		CreateUnit_amount = CreateUnit_amount -1
+		--这段是早期刷怪用，以后记得删除
+		--CreateUnit_amount = CreateUnit_amount -1
+		
+		-- local loc = killed:GetAbsOrigin()	--得到主体坐标
+		-- local unitname = killed:GetClassname()
+		-- print("unitname = ",killed:GetClassname()) --npc_dota_creature?
+		-- GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("CreateUnit"), 
+		-- 	function()
+		-- 		CreateUnit_amount = CreateUnit_amount +1
+		-- 		-- local unit = CreateUnitByName(unitname,loc,true,nil,nil,DOTA_TEAM_NEUTRALS)
+		-- 		local unit = CreateUnitByName("npc_zombie_01",loc,true,nil,nil,DOTA_TEAM_NEUTRALS)
+		-- 	return nil
+		-- end,30)
+
 	end
 end
 
@@ -84,29 +98,29 @@ function Global:HeroMoveAndShooting( event )
 		end
 
 		--产生怪
-		CreateUnit_amount = 0
-		GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("CreateUnit"), 
-			function()
-				if hero == nil then
-					return nil
-				end
-				if GameRules.IsGamePaused or hero:IsAlive() == false then
-					return 1
-				end
+		-- CreateUnit_amount = 0
+		-- GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("CreateUnit"), 
+		-- 	function()
+		-- 		if hero == nil then
+		-- 			return nil
+		-- 		end
+		-- 		if GameRules.IsGamePaused or hero:IsAlive() == false then
+		-- 			return 1
+		-- 		end
 
-				local hero_in = hero:GetAbsOrigin()	--得到主体坐标
-				if CreateUnit_amount < 50 then
-					for i = 1,RandomInt(4,9) do
-							CreateUnit_amount = CreateUnit_amount +1
-							local unit = CreateUnitByName("npc_zombie_01",hero:GetAbsOrigin()+RandomVector(1000),true,nil,nil,DOTA_TEAM_NEUTRALS)
-					end
-					for i = 1,RandomInt(2,4) do
-							CreateUnit_amount = CreateUnit_amount +1
-							local unit = CreateUnitByName("npc_zombie_02",hero:GetAbsOrigin()+RandomVector(1200),true,nil,nil,DOTA_TEAM_NEUTRALS)
-					end
-				end
-			return 10
-		end,120)
+		-- 		local hero_in = hero:GetAbsOrigin()	--得到主体坐标
+		-- 		if CreateUnit_amount < 50 then
+		-- 			for i = 1,RandomInt(4,9) do
+		-- 					CreateUnit_amount = CreateUnit_amount +1
+		-- 					local unit = CreateUnitByName("npc_zombie_01",hero:GetAbsOrigin()+RandomVector(1000),true,nil,nil,DOTA_TEAM_NEUTRALS)
+		-- 			end
+		-- 			for i = 1,RandomInt(2,4) do
+		-- 					CreateUnit_amount = CreateUnit_amount +1
+		-- 					local unit = CreateUnitByName("npc_zombie_02",hero:GetAbsOrigin()+RandomVector(1200),true,nil,nil,DOTA_TEAM_NEUTRALS)
+		-- 			end
+		-- 		end
+		-- 	return 10
+		-- end,90)
 
 		--移动
 		GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("move"), 
@@ -158,9 +172,21 @@ function Global:HeroMoveAndShooting( event )
 		end,0)
 
 		--注册默认武器
-		Set_Hero_Weapons(hero,"Light_Weapons_Left",hero:GetAbilityByIndex(0))
-		Set_Hero_Weapons(hero,"Light_Weapons_Right",hero:GetAbilityByIndex(0))
-		Set_Hero_Weapons(hero,"Heavy_Weapons_Middle",hero:GetAbilityByIndex(1))
+		-- Set_Hero_Weapons(hero,"Light_Weapons_Left",hero:GetAbilityByIndex(0))
+		-- Set_Hero_Weapons(hero,"Light_Weapons_Right",hero:GetAbilityByIndex(0))
+		-- Set_Hero_Weapons(hero,"Heavy_Weapons_Middle",hero:GetAbilityByIndex(1))
+
+		CreateItemForHero("Light_Weapons_Default",hero,"Light_Weapons_Left")
+		CreateItemForHero("Light_Weapons_Default",hero,"Light_Weapons_Right")
+		CreateItemForHero("Heavy_Weapons_Default",hero,"Heavy_Weapons_Middle")
+
+		CreateItemForHero("Heavy_Weapons_Fire",hero,"inbag")
+		CreateItemForHero("Light_Weapons_Default",hero,"inbag")
+		CreateItemForHero("Heavy_Weapons_Fire",hero,"inbag")
+		CreateItemForHero("Heavy_Weapons_Fire",hero,"inbag")
+		-- CreateItemForHero("Heavy_Weapons_Default",hero,"inbag")
+		-- CreateItemForHero("Heavy_Weapons_Fire",hero,"inbag")
+		-- CreateItemForHero("Heavy_Weapons_Fire",hero,"inbag")
 
 		--武器左右键的冷却时间
 		if Weapons_Cooldown == nil then
@@ -283,6 +309,32 @@ function KeyboardRegisterCommand()
 	Convars:RegisterCommand( "rehero", function(name)
 		GameRules:ResetToHeroSelection()
 	end, "rehero", 0 )
+
+	-- 更换武器
+	Convars:RegisterCommand( "onSwapWeapons", function(name,weapons_slot,itemID)
+		local player = Convars:GetCommandClient()
+		local pID = player:GetPlayerID()
+		local iID = tonumber(itemID)
+		local hero = player:GetAssignedHero()
+		print("[[onSwapWeapons]]weapons_slot = ",weapons_slot)
+		print("[[onSwapWeapons]]iID = ",iID)
+		if iID == -1 then
+			hero[weapons_slot].ItemID = iID
+			return
+		end
+
+		if hero[weapons_slot] == nil then
+			hero[weapons_slot] = {}
+		end
+		--击中时 是否删除
+		if ITEMS[iID].DeleteOnHit then
+ 			ability = hero:FindAbilityByName(weapons_slot.."_DeleteOnHit")
+		else
+			ability = hero:FindAbilityByName(weapons_slot.."_NoDeleteOnHit")
+		end
+		hero[weapons_slot].Ability		= ability
+		hero[weapons_slot].ItemID		= iID
+	end, "Swap Weapons", 0 )
 	
 	--== 注册鼠标相关变量
 	Mouse = {}
@@ -565,5 +617,32 @@ function KeyboardRegisterCommand()
 			-- Say(nil, "D→ up", false)
 		end
 	end, "walking left", 0 )
+
+end
+
+--------------------------------------------------------------------------------
+-- 伤害半径的敌方单位(伤害来源单位，伤害值，目标点，范围)
+--------------------------------------------------------------------------------
+function ApplyDamageInRadius(caster,damage,point,radius)
+	local target_entities = FindUnitsInRadius(
+							caster:GetTeam(),
+							point,
+							nil,
+							radius,
+							DOTA_UNIT_TARGET_TEAM_ENEMY,
+							DOTA_UNIT_TARGET_ALL,
+							DOTA_UNIT_TARGET_FLAG_NONE,
+							FIND_CLOSEST,
+							false)
+
+	for i, target in ipairs(target_entities) do
+		local damageTable = {
+			victim = target,
+			attacker = caster,
+			damage = damage,
+			damage_type = DAMAGE_TYPE_PURE,
+		}
+		ApplyDamage(damageTable)
+	end
 
 end

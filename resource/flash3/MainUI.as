@@ -39,6 +39,9 @@
 			//这一步不是必须的, 但是可以显示你的UI已经加载（需要在控制台中输入'scaleform_spew 1'） this is not needed, but it shows you your UI has loaded (needs 'scaleform_spew 1' in console)
 			trace("Custom UI loaded!");
 
+			//!!!!!测试！！
+			this.EquipPanel.onLoaded(this.gameAPI,this.globals);
+
 			//提醒玩家的错误信息
 			this.gameAPI.SubscribeToGameEvent("custom_error_show", this.showError);
 			//锁定镜头
@@ -216,16 +219,19 @@
 			this.ActionPanel.portrait_wide.x = ActionPanel_portraitX;
 
 			//右下 结构图+物品栏
-			if(this.EquipPanel["originalXScale"] == null)
-			{
-				this.EquipPanel["originalXScale"] = this.scaleX;
-				this.EquipPanel["originalYScale"] = this.scaleY;
-			}
-			this.EquipPanel.scaleX = this.EquipPanel.originalXScale * correctedRatio * 0.47;
-			this.EquipPanel.scaleY = this.EquipPanel.originalYScale * correctedRatio * 0.47;
+			//if(this.EquipPanel["originalXScale"] == null)
+			//{
+			//	this.EquipPanel["originalXScale"] = this.scaleX;
+			//	this.EquipPanel["originalYScale"] = this.scaleY;
+			//}
+			//this.EquipPanel.scaleX = this.EquipPanel.originalXScale * correctedRatio * 0.47;
+			//this.EquipPanel.scaleY = this.EquipPanel.originalYScale * correctedRatio * 0.47;
+			this.EquipPanel.scaleX = this.ActionPanel.originalXScale * correctedRatio * 0.47;
+			this.EquipPanel.scaleY = this.ActionPanel.originalXScale * correctedRatio * 0.47;
 			this.EquipPanel.x = re.ScreenWidth;
 			this.EquipPanel.y = re.ScreenHeight;
-			this.EquipPanel.Chart.x = -ActionPanel_portraitX;
+			
+			this.EquipPanel.Equip.x = -ActionPanel_portraitX;
 
 
 		}
